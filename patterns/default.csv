@@ -1,4 +1,6 @@
 tag,content
 email,a@a
 xss,<s>aaaa</s>
+n_xss,it's test text
 sqli,' OR '1'='1
+n_sqli,password
