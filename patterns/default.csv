@@ -1,0 +1,4 @@
+tag,content
+email,a@a
+xss,<s>aaaa</s>
+sqli,' OR '1'='1
