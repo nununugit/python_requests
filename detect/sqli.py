@@ -1,19 +1,13 @@
-# -*- coding: utf-8 -*-
 import mechanize
 import chardet
-import csv
 
-def detect_authentication_avoidance(url,n_flag):
+def detect_authentication_avoidance(url,pattern_data,email):
     #認証回避(Authentication avoidance)
-    attack_no = 1
     request = mechanize.Browser()
     request.open(url)
     request.select_form(nr = 0)
-
-    request["email"] = "a@a"
-    request["password"] = "postcard"
-    if(n_flag == True):
-        request["password"] = "password"
+    request["email"] = str(email)
+    request["password"] = str(pattern_data)
     response = request.submit()
     res_data = str(response.read())
     return res_data
