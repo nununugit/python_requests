@@ -1,5 +1,4 @@
 import mechanize
-import chardet
 import re
 
 def sqli():

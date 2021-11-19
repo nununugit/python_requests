@@ -10,10 +10,12 @@ def detect_cross_site_scripting(url,pattern_data):
     request = mechanize.Browser()
     request.open(url)
     request.select_form(nr = 0)
+    request.form.set_all_readonly(False) 
     found_names = re.findall(r'\((.*)=\)',str(request))
     for found_name in found_names:
-        if('mail' in found_name):
-            request[found_name] = str(pattern_data)
+        request[found_name] = pattern_data
+        # if(request.find_control(found_name).readonly == True):
+        #     request.find_control(found_name).readonly = False # allow changing .value of control foo 
     response = request.submit()
     res_data = str(response.read())
     return res_data
